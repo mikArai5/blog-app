@@ -1,8 +1,20 @@
-import React from 'react'
+import { signInWithPopup } from "firebase/auth";
+import React from 'react';
+import { auth, provider } from "../firebase";
 
 function Login() {
+  const loginWithGoogle = () => {
+    // Googleでログイン
+    signInWithPopup(auth,provider).then((result) => {
+      console.log(result);
+    });
+  };
+
   return (
-    <div>Login</div>
+    <div>
+      <p>ログインして始める</p>
+      <button onClick={loginWithGoogle}>Googleでログイン</button>
+    </div>
   )
 }
 
