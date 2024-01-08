@@ -1,6 +1,6 @@
 import { collection, deleteDoc, getDocs, doc } from "firebase/firestore";
 import React, { useEffect, useState } from 'react';
-import { db } from "../firebase";
+import { db,auth } from "../firebase";
 import "./Home.css";
 
 function Home() {
@@ -32,7 +32,9 @@ function Home() {
         <div className='postTextContainer'>{post.postsText}</div>
         <div className='nameAndDeleteButton'>
           <h3>@{post.author.username}</h3>
-          <button onClick={() => handleDelete(post.id)}>削除</button>
+          {post.author.id === auth.currentUser.uid && (
+            <button onClick={() => handleDelete(post.id)}>削除</button>
+          )}
         </div>
       </div>
       );
