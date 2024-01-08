@@ -43,6 +43,10 @@ function CreatePost() {
         <button className='postButton' onClick={createPost}>
           投稿する
         </button>
+        <div>
+          <h3>@mmm</h3>
+          <button>削除</button>
+        </div>
       </div>
     </div>
   )
